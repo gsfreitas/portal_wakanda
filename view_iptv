@@ -1,0 +1,253 @@
+FAB_IPTV_SW = 
+var DataHoje = TODAY()
+var DataFabrica = MAX('IPTV_SW'[FABRICA])
+var AtrasoFabrica = MAX('IPTV_SW'[ATRASO_FABRICA])
+var AprovadoFOA = MAX('IPTV_SW'[APROVADO_FOA])
+var ValidacaoEx = MAX('IPTV_SW'[VALIDACAO_EXECUTIVA_PILOTO])
+var AprovadoHomolog = MAX('IPTV_SW'[APROVADO_HOMOLOG])
+var AprovadoFUT = MAX('IPTV_SW'[APROVADO_FUT])
+var DataInicioScripts = MAX('IPTV_SW'[INICIO_SCRIPTS_MASSIFICACAO])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoFabrica = 2, UPPER(FORMAT(DataFabrica, "DDMMM")) & "  " & "🟡", //está em atraso
+    DataFabrica >= DataHoje && DataHoje < DataInicioScripts, UPPER(FORMAT(DataFabrica, "DDMMM")) & "  " & "🔵", // fábrica está em andamento
+    DataFabrica <= DataHoje && DataFabrica <> BLANK(), UPPER(FORMAT(DataFabrica, "DDMMM")) & "  " & "🟢", // fábrica concluído
+    DataFabrica > DataHoje, UPPER(FORMAT(DataFabrica, "DDMMM")) & "  " & "⚪", // é uma data futura
+    ISBLANK(DataFabrica), "-" // OPCH indefinido
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
+
+FOA_IPTV_SW = 
+var DataHoje = TODAY()
+var DataInicioFOA = MAX('IPTV_SW'[INICIO_FOA])
+var DataTerminoFOA = MAX('IPTV_SW'[TERMINO_FOA])
+var AtrasoIFOA = MAX('IPTV_SW'[ATRASO_FOA])
+var AprovadoFOA = MAX('IPTV_SW'[APROVADO_FOA])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoIFOA = 1, UPPER(FORMAT(DataInicioFOA, "DDMMM")) & "  " & "🟡", //está em atraso
+    AprovadoFOA = 0 && AprovadoFOA <> BLANK(), UPPER(FORMAT(DataInicioFOA, "DDMMM")) & "  " & "🔴", //FOA reprovado
+    DataInicioFOA <= DataHoje && DataHoje <= DataTerminoFOA, UPPER(FORMAT(DataInicioFOA, "DDMMM")) & "  " & "🔵", // homologação está em andamento
+    DataTerminoFOA < DataHoje && DataTerminoFOA <> BLANK(), UPPER(FORMAT(DataInicioFOA, "DDMMM")) & "  " & "🟢", // homologação concluída
+    DataInicioFOA > DataHoje, UPPER(FORMAT(DataInicioFOA, "DDMMM")) & "  " & "⚪", // é uma data futura
+    ISBLANK(DataInicioFOA), "-" // se inicio FOA não for preenchido ou for reprovado
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
+
+FUT_IPTV_SW = 
+var DataHoje = TODAY()
+var DataInicioFUT = MAX('IPTV_SW'[INICIO_FUT])
+var DataTerminoFUT = MAX('IPTV_SW'[TERMINO_FUT])
+var AtrasoFUT = MAX('IPTV_SW'[ATRASO_FUT])
+var AprovadoFUT = MAX('IPTV_SW'[APROVADO_FUT])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoFUT = 1, UPPER(FORMAT(DataInicioFUT, "DDMMM")) & "  " & "🟡", //está em atraso
+    AprovadoFUT = 0 && AprovadoFUT <> BLANK(), UPPER(FORMAT(DataInicioFUT, "DDMMM")) & "  " & "🔴", //está reprovado
+    DataInicioFUT <= DataHoje && DataHoje <= DataTerminoFUT, UPPER(FORMAT(DataInicioFUT, "DDMMM")) & "  " & "🔵", // homologação está em andamento
+    DataTerminoFUT < DataHoje && DataTerminoFUT <> BLANK(), UPPER(FORMAT(DataInicioFUT, "DDMMM")) & "  " & "🟢", // FUT concluído
+    DataInicioFUT > DataHoje, UPPER(FORMAT(DataInicioFUT, "DDMMM")) & "  " & "⚪", // é uma data futura
+    ISBLANK(DataInicioFUT), "-" // se termino FUT não for preenchido
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
+
+HOMOLOG_IPTV = 
+var DataHoje = TODAY()
+var DataInicioHomolog = MAX('IPTV_SW'[INICIO_HOMOLOG])
+var DataTerminoHomolog = MAX('IPTV_SW'[TERMINO_HOMOLOG])
+var AtrasoHomolog = MAX('IPTV_SW'[ATRASO_HOMOLOG])
+var AprovadoHomolog = MAX('IPTV_SW'[APROVADO_HOMOLOG])
+var ValidaEx = MAX('IPTV_SW'[VALIDACAO_EXECUTIVA_PILOTO])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoHomolog = 1, UPPER(FORMAT(DataInicioHomolog, "DDMMM")) & "  " & "🟡", //está em atraso
+    (AprovadoHomolog = 0 && AprovadoHomolog <> BLANK()) || (ValidaEx = 0 && ValidaEx <> BLANK()), UPPER(FORMAT(DataInicioHomolog, "DDMMM")) & "  " & "🔴", //está reprovado
+    DataInicioHomolog <= DataHoje && DataHoje <= DataTerminoHomolog, UPPER(FORMAT(DataInicioHomolog, "DDMMM")) & "  " & "🔵", // homologação está em andamento
+    DataTerminoHomolog < DataHoje && DataTerminoHomolog <> BLANK(), UPPER(FORMAT(DataInicioHomolog, "DDMMM")) & "  " & "🟢", // FUT concluído
+    DataInicioHomolog > DataHoje, UPPER(FORMAT(DataInicioHomolog, "DDMMM")) & "  " & "⚪", // é uma data futura
+    ISBLANK(DataInicioHomolog), "-" // se termino FUT não for preenchido
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
+
+OPCH_IPTV_SW = 
+var DataHoje = TODAY()
+var DataOPCH = MAX('IPTV_SW'[OPCH_PROD])
+var AtrasoOPCH = MAX('IPTV_SW'[ATRASO_OPCH_PROD])
+var DataFabrica = MAX('IPTV_SW'[FABRICA])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoOPCH = 1, UPPER(FORMAT(DataOPCH, "DDMMM")) & "  " & "🟡", //está em atraso
+    DataOPCH >= DataHoje && DataHoje < DataFabrica, UPPER(FORMAT(DataOPCH, "DDMMM")) & "  " & "🔵", // OPCH está em andamento
+    DataFabrica <= DataHoje && DataFabrica <> BLANK(), UPPER(FORMAT(DataOPCH, "DDMMM")) & "  " & "🟢", // OPCH concluído
+    DataOPCH > DataHoje, UPPER(FORMAT(DataOPCH, "DDMMM")) & "  " & "⚪", // é uma data futura
+    ISBLANK(DataOPCH), "-" // OPCH indefinido
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
+
+SCRIPTS_IPTV_SW = 
+var DataHoje = TODAY()
+var DataInicioScripts = MAX('IPTV_SW'[INICIO_SCRIPTS_MASSIFICACAO])
+var DataTerminoScripts = MAX('IPTV_SW'[TERMINO_SCRIPTS_MASSIFICACAO])
+var AtrasoScripts = MAX('IPTV_SW'[ATRASO_MASSIFCACAO])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoScripts = 2, UPPER(FORMAT(DataInicioScripts, "DDMMM")) & "  " & "🟡", //está em atraso
+    (DataInicioScripts <= DataHoje) && (DataHoje < DataTerminoScripts), UPPER(FORMAT(DataInicioScripts, "DDMMM")) & "  " & "🔵", // OPCH está em andamento
+    DataTerminoScripts <= DataHoje && DataTerminoScripts <> BLANK(), UPPER(FORMAT(DataInicioScripts, "DDMMM")) & "  " & "🟢", // OPCH concluído
+    DataInicioScripts > DataHoje, UPPER(FORMAT(DataInicioScripts, "DDMMM")) & "  " & "⚪", // é uma data futura
+    ISBLANK(DataInicioScripts), "-" // Scripts indefinido
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
+
+SW_IPTV = 
+var DataHoje = TODAY()
+var AtrasoSW = MAX('IPTV_SW'[ATRASO_SW])
+var DataSW = MAX('IPTV_SW'[CHEGADA_SW])
+var NovoSW = MAX('IPTV_SW'[NOVO_SW])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    ISBLANK(DataSW), "-",
+    AtrasoSW = 1, UPPER(FORMAT(DataSW, "DDMMM")) & "  " & "🟡", //a chegada do SW está atrasada
+        DataSW <= DataHoje && DataSW <> DATE(1990,01,01), UPPER(FORMAT(DataSW, "DDMMM")) & "  " & "🟢", //Já estamos com o FW
+        DataSW = DATE(1990,01,01), "-", //Não chegou o FW ainda, por isso não foi preenchido
+        DataSW > DataHoje, UPPER(FORMAT(DataSW, "DDMMM")) & "  " & "⚪" //Data futura
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
+
+FAB_IPTV_HW = 
+var DataHoje = TODAY()
+var DataFabrica = MAX('IPTV_HW'[FABRICA])
+var AtrasoOPCH = MAX('IPTV_HW'[ATRASO_OPCH_PROD])
+var DataInicioScripts = MAX('IPTV_HW'[INICIO_SCRIPTS_MASSIFICACAO])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoOPCH = 2, "🟡", //está em atraso
+    DataFabrica >= DataHoje && DataHoje < DataInicioScripts, UPPER(FORMAT(DataFabrica, "DDMMM")) & "  " & "🔵", // fábrica está em andamento
+    DataFabrica <= DataHoje && DataFabrica <> BLANK(), UPPER(FORMAT(DataFabrica, "DDMMM")) & "  " & "🟢", // fábrica concluído
+    DataFabrica > DataHoje, UPPER(FORMAT(DataFabrica, "DDMMM")) & "  " & "⚪", // é uma data futura
+    DataFabrica = BLANK(), "-" // OPCH indefinido
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
+
+FOA_IPTV_HW = 
+var DataHoje = TODAY()
+var DataInicioFOA = MAX('IPTV_HW'[INICIO_FOA])
+var DataTerminoFOA = MAX('IPTV_HW'[TERMINO_FOA])
+var AtrasoIFOA = MAX('IPTV_HW'[ATRASO_FOA])
+var AprovadoFOA = MAX('IPTV_HW'[APROVADO_FOA])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoIFOA = 1, UPPER(FORMAT(DataTerminoFOA, "DDMMM")) & "  " & "🟡", //está em atraso
+    AprovadoFOA = 0 && AprovadoFOA <> BLANK(), UPPER(FORMAT(DataTerminoFOA, "DDMMM")) & "  " & "🔴", //FOA reprovado
+    DataInicioFOA <= DataHoje && DataHoje <= DataTerminoFOA, UPPER(FORMAT(DataTerminoFOA, "DDMMM")) & "  " & "🔵", // homologação está em andamento
+    DataTerminoFOA < DataHoje && DataTerminoFOA <> BLANK(), UPPER(FORMAT(DataTerminoFOA, "DDMMM")) & "  " & "🟢", // homologação concluída
+    DataInicioFOA > DataHoje, UPPER(FORMAT(DataInicioFOA, "DDMMM")) & "  " & "⚪", // é uma data futura
+    DataInicioFOA = BLANK(), "-" // se inicio FOA não for preenchido ou for reprovado
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
+
+FUT_IPTV_HW = 
+var DataHoje = TODAY()
+var DataInicioFUT = MAX('IPTV_HW'[INICIO_FUT])
+var DataTerminoFUT = MAX('IPTV_HW'[TERMINO_FUT])
+var AtrasoFUT = MAX('IPTV_HW'[ATRASO_FUT])
+var AprovadoFUT = MAX('IPTV_HW'[APROVADO_FUT])
+var AprovadoHomolog = MAX('IPTV_HW'[APROVADO_HOMOLOG])
+var ValidaEx = MAX('IPTV_HW'[VALIDACAO_EXECUTIVA_PILOTO])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoFUT = 1, UPPER(FORMAT(DataTerminoFUT, "DDMMM")) & "  " & "🟡", //está em atraso
+    AprovadoFUT = 0 && AprovadoFUT <> BLANK(), UPPER(FORMAT(DataTerminoFUT, "DDMMM")) & "  " & "🔴", //está reprovado
+    DataInicioFUT <= DataHoje && DataHoje <= DataTerminoFUT, UPPER(FORMAT(DataTerminoFUT, "DDMMM")) & "  " &  "🔵", // homologação está em andamento
+    DataTerminoFUT < DataHoje && DataTerminoFUT <> BLANK(), UPPER(FORMAT(DataTerminoFUT, "DDMMM")) & "  " & "🟢", // FUT concluído
+    DataInicioFUT > DataHoje, UPPER(FORMAT(DataTerminoFUT, "DDMMM")) & "  " & "⚪", // é uma data futura
+    ISBLANK(DataInicioFUT), "-" // se termino FUT não for preenchido
+    )
+    return RESULTADO
+    
+---------------------------------------------------------------------------------------------
+
+HOMOLOG_IPTV_HW = 
+var DataHoje = TODAY()
+var AtrasoHomolog = MAX('IPTV_HW'[ATRASO_HOMOLOG])
+var DataInicioHomolog = MAX('IPTV_HW'[INICIO_HOMOLOG])
+var DataTerminoHomolog = MAX('IPTV_HW'[TERMINO_HOMOLOG])
+var AprovadoHomolog = MAX('IPTV_HW'[APROVADO_HOMOLOG])
+var ValidacaoEx = MAX('IPTV_HW'[VALIDACAO_EXECUTIVA_PILOTO])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoHomolog = 2 && AtrasoHomolog <> BLANK(), UPPER(FORMAT(DataInicioHomolog, "DDMMM")) & "  " & "🟡", // homologação está em atraso
+    (AprovadoHomolog = 1 && AprovadoHomolog <> BLANK()) || (ValidacaoEx = 2 && ValidacaoEx <> BLANK()), UPPER(FORMAT(DataInicioHomolog, "DDMMM")) & "  " & "🔴", // está reprovado
+    DataInicioHomolog <= DataHoje && DataHoje < DataTerminoHomolog, UPPER(FORMAT(DataInicioHomolog, "DDMMM")) & "  " & "🔵", // homologação está em andamento
+    DataTerminoHomolog <= DataHoje && DataTerminoHomolog <> BLANK(), UPPER(FORMAT(DataInicioHomolog, "DDMMM")) & "  " & "🟢", // homologação concluída
+    DataInicioHomolog > DataHoje, UPPER(FORMAT(DataInicioHomolog, "DDMMM")) & "  " & "⚪" // é uma data futura
+     //se não for preenchido
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
+
+OPCH_IPTV_HW = 
+var DataHoje = TODAY()
+var DataOPCH = MAX('IPTV_HW'[OPCH_PROD])
+var AtrasoOPCH = MAX('IPTV_HW'[ATRASO_OPCH_PROD])
+var DataFabrica = MAX('IPTV_HW'[FABRICA])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoOPCH = 2, UPPER(FORMAT(DataOPCH, "DDMMM")) & "  " & "🟡", //está em atraso
+    DataOPCH >= DataHoje && DataHoje < DataFabrica, UPPER(FORMAT(DataOPCH, "DDMMM")) & "  " & "🔵", // OPCH está em andamento
+    DataFabrica <= DataHoje && DataFabrica <> BLANK(), UPPER(FORMAT(DataOPCH, "DDMMM")) & "  " & "🟢", // OPCH concluído
+    DataOPCH > DataHoje, UPPER(FORMAT(DataOPCH, "DDMMM")) & "  " & "⚪", // é uma data futura
+    ISBLANK(DataOPCH), "-" // OPCH indefinido
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
+
+SCRIPTS_IPTV_HW = 
+var DataHoje = TODAY()
+var DataInicioScripts = MAX('IPTV_HW'[INICIO_SCRIPTS_MASSIFICACAO])
+var DataTerminoScripts = MAX('IPTV_HW'[TERMINO_SCRIPTS_MASSIFICACAO])
+var AtrasoScripts = MAX('IPTV_HW'[TERMINO_SCRIPTS_MASSIFICACAO])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoScripts = 2, UPPER(FORMAT(DataTerminoScripts, "DDMMM")) & "  " & "🟡", //está em atraso
+    DataInicioScripts >= DataHoje && DataHoje < DataTerminoScripts, UPPER(FORMAT(DataTerminoScripts, "DDMMM")) & "  " & "🔵", // OPCH está em andamento
+    DataTerminoScripts <= DataHoje && DataTerminoScripts <> BLANK(), UPPER(FORMAT(DataTerminoScripts, "DDMMM")) & "  " & "🟢", // OPCH concluído
+    DataInicioScripts > DataHoje, UPPER(FORMAT(DataTerminoScripts, "DDMMM")) & "  " & "⚪", // é uma data futura
+    ISBLANK(DataTerminoScripts), "-" // OPCH indefinido
+    )
+    return RESULTADO
+
+---------------------------------------------------------------------------------------------
