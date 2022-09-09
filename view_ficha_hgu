@@ -1,0 +1,229 @@
+CHEGADA_FW = 
+var DataHoje = TODAY()
+var DataInicioHomolog = MAX('Principal'[INICIO_HOMOLOG])
+var AtrasoFW = MAX(Principal[ATRASO_FW])
+var DataTerminoHomolog = MAX('Principal'[TERMINO_HOMOLOG])
+var DataFW = MAX('Principal'[CHEGADA_FW])
+var NovoFW = MAX('Principal'[NOVO_FW])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    ISBLANK(NovoFW), "-",
+    AtrasoFW = 1 && ISBLANK(DataFW), "ASAP" & "  " & "🟡", //a chegada do FW está atrasada
+        DataFW <= DataHoje && DataFW <> BLANK(), DataFW & "  " & "🟢", //Já estamos com o FW
+        ISBLANK(DataFw), "-", //Não chegou o FW ainda, por isso não foi preenchido
+        DataFW > DataHoje, DataFW & "  " & "⚪" //Data futura
+    )
+    return RESULTADO
+    
+-------------------------------------------------------------------------
+
+INICIO HOMOLOG = 
+var DataInicioHomolog = MAX('Principal'[INICIO_HOMOLOG])
+var RESULTADO =
+    SWITCH(TRUE(),
+        ISBLANK(DataInicioHomolog), "-", //se não for preenchido
+        DataInicioHomolog //caso contrário, mostrar a data
+    )
+    return RESULTADO
+
+-------------------------------------------------------------------------
+
+TERMINO_HOMOLOG = 
+var DataHoje = TODAY()
+var AtrasoHomolog = MAX(Principal[ATRASO_HOMOLOG])
+var DataInicioHomolog = MAX('Principal'[INICIO_HOMOLOG])
+var DataTerminoHomolog = MAX('Principal'[TERMINO_HOMOLOG])
+var AprovadoHomolog = MAX('Principal'[APROVADO_HOMOLOG])
+var ValidacaoEx = MAX(Principal[VALIDACAO_EXECUTIVA_PILOTOS])
+var COND_FW = [COND_FW]
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoHomolog = 1, DataTerminoHomolog & "  " & "🟡", // está em atraso
+    (AprovadoHomolog = 1 && AprovadoHomolog <> BLANK()) || (ValidacaoEx = 0 && ValidacaoEx <> BLANK()), DataTerminoHomolog & "  " & "🔴", // reprovado
+    DataInicioHomolog <= DataHoje && DataHoje < DataTerminoHomolog, DataTerminoHomolog & "  " & "🔵", // homologação está em andamento
+    DataTerminoHomolog <= DataHoje && DataTerminoHomolog <> BLANK(), DataTerminoHomolog & "  " & "🟢", // homologação concluída
+    DataInicioHomolog > DataHoje, DataTerminoHomolog & "  " & "⚪",  // é uma data futura
+    ISBLANK(DataTerminoHomolog), "-" //se não for preenchido
+    )
+    return RESULTADO
+
+-------------------------------------------------------------------------
+
+INICIO_FUT = 
+var DataInicioFUT = MAX('Principal'[INICIO_FUT])
+var RESULTADO =
+    SWITCH(TRUE(),
+        ISBLANK(DataInicioFUT), "-", //se não for preenchido
+        DataInicioFUT //caso contrário, mostrar a data
+    )
+    return RESULTADO
+
+-------------------------------------------------------------------------
+
+TERMINO_FUT = 
+var DataHoje = TODAY()
+var DataInicioFUT = MAX('Principal'[INICIO_FUT])
+var DataTerminoFUT = MAX('Principal'[TERMINO_FUT])
+var AtrasoFUT = MAX(Principal[ATRASO_FUT])
+var AprovadoFUT = MAX(Principal[APROVADO_FUT])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+
+    AtrasoFUT = 1, DataTerminoFUT & "  " & "🟡", //está em atraso
+    AprovadoFUT = 0 && AprovadoFUT <> BLANK(), DataTerminoFUT & "  " & "🔴", //está reprovado
+    DataInicioFUT <= DataHoje && DataHoje <= DataTerminoFUT, DataTerminoFUT & "  " & "🔵", // homologação está em andamento
+    DataTerminoFUT < DataHoje && DataTerminoFUT <> BLANK(), DataTerminoFUT & "  " & "🟢", // FUT concluído
+    DataInicioFUT > DataHoje, DataTerminoFUT & "  " & "⚪", // é uma data futura
+
+    ISBLANK(DataInicioFUT), "-" // se termino FUT não for preenchido
+    )
+    return RESULTADO
+
+INICIO_FOA = 
+var DataInicioFOA = MAX('Principal'[INICIO_FOA])
+var RESULTADO =
+    SWITCH(TRUE(),
+        ISBLANK(DataInicioFOA), "-", //se não for preenchido
+        DataInicioFOA //caso contrário, mostrar a data
+    )
+    return RESULTADO
+
+-------------------------------------------------------------------------
+
+TERMINO_FOA = 
+var DataHoje = TODAY()
+var DataInicioFOA = MAX('Principal'[INICIO_FOA])
+var DataTerminoFOA = MAX('Principal'[TERMINO_FOA])
+var AtrasoIFOA = MAX('Principal'[ATRASO_FOA])
+var AprovadoFOA = MAX('Principal'[APROVADO_FOA])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+
+    AtrasoIFOA = 1, DataTerminoFOA & "  " & "🟡", //está em atraso
+    AprovadoFOA = 0 && AprovadoFOA <> BLANK(), DataTerminoFOA & "  " & "🔴", //FOA reprovado
+    DataInicioFOA <= DataHoje && DataHoje <= DataTerminoFOA, DataTerminoFOA & "  " & "🔵", // homologação está em andamento
+    DataTerminoFOA < DataHoje && DataTerminoFOA <> BLANK(), DataTerminoFOA & "  " & "🟢", // homologação concluída
+    DataInicioFOA > DataHoje, DataTerminoFOA & "  " & "⚪", // é uma data futura
+
+    ISBLANK(DataInicioFOA), "-" // se inicio FOA não for preenchido ou for reprovado
+
+    )
+    return RESULTADO
+
+-------------------------------------------------------------------------
+
+CERTIFIC = 
+var DataCertificado = MAX(Principal[CERTIFICADO_HOMOLOG])
+var AprovadoCertificado = MAX('Principal'[APROVADO_CERTIFICADO])
+var DataHoje = TODAY()
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+
+        AprovadoCertificado = 0 && AprovadoCertificado <> BLANK(), DataCertificado & "  " & "🔴", //certificado reprovado
+        DataCertificado > DataHoje && DataCertificado <> BLANK(), DataCertificado & "  " & "⚪", // é uma data futura
+        DataCertificado < DataHoje && DataCertificado <> BLANK(), DataCertificado & "  " & "🟢", // certificado aprovado
+
+        ISBLANK(DataCertificado), "-" //se certificado não for preenchido
+    )
+    return RESULTADO
+
+-------------------------------------------------------------------------
+
+PREFERRED = 
+var DataHoje = TODAY()
+var DataPref = MAX(Principal[PREFERRED])
+var DataFabrica = MAX('Principal'[FABRICA])
+var AtrasoPREF = MAX(Principal[ATRASO_PREFERRED])
+var COND_CERTIFICADO = [COND_CERTIFICADO]
+var DataReversa = MAX(Principal[REVERSA])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoPREF = 1, DataPref & "  " & "🟡", //está em atraso
+    DataPref = DataHoje && DataHoje < DataFabrica || (DataFabrica = DataPref && DataPref = DataHoje && DataHoje <= DataPref), DataPref & "  " & "🔵", // preferred está em andamento
+    DataPref < DataHoje && DataPref <> BLANK(), DataPref & "  " & "🟢", // preferred concluída
+    DataPref > DataHoje, DataPref & "  " & "⚪",
+    ISBLANK(DataPref), "-"
+    )
+    return RESULTADO
+    
+-------------------------------------------------------------------------
+
+FABRICA = 
+var DataHoje = TODAY()
+var DataPref = MAX('Principal'[PREFERRED])
+var DataFabrica = MAX('Principal'[FABRICA])
+var DataReversa = MAX('Principal'[REVERSA])
+var AtrasoFabrica = MAX('Principal'[ATRASO_FABRICA])
+var AprovadoCertificado = MAX('Principal'[APROVADO_CERTIFICADO])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+
+    AtrasoFabrica = 1, DataFabrica & "  " & "🟡", //está em atraso
+    DataFabrica = DataHoje && DataHoje < DataReversa || (DataFabrica = DataPref && DataFabrica = DataHoje && DataHoje <= DataReversa), DataFabrica & "  " & "🔵", // preferred está em andamento
+    DataFabrica < DataHoje && DataFabrica <> BLANK(), DataFabrica & "  " & "🟢", // já passou pela fábrica
+    ISBLANK(DataFabrica), "-", //se não for preeenchido ou o certificado for reprovado
+    DataFabrica > DataHoje, DataFabrica & "  " & "⚪"
+    )
+    return RESULTADO
+
+-------------------------------------------------------------------------
+
+REVERSA = 
+var DataHoje = TODAY()
+var DataReversa = MAX(Principal[REVERSA])
+var DataFabrica = MAX('Principal'[FABRICA])
+var DataInicioScript = MAX('Principal'[INICIO_SCRIPTS_MASSIFICACAO])
+var AtrasoReversa = MAX(Principal[ATRASO_REVERSA])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AtrasoReversa = 1, DataReversa & "  " & "🟡", //está em atraso
+    DataReversa = DataHoje && DataHoje < DATE(YEAR(DataReversa),MONTH(DataReversa),DAY(DataReversa)+10) || (DataFabrica = DataReversa && DataReversa = DataHoje && DataHoje <= DataInicioScript), DataReversa & "  " & "🔵",// Reversa está em andamento
+    DataReversa < DataHoje && DataReversa <> BLANK(), DataReversa & "  " & "🟢", // já passou pela reversa
+    DataReversa > DataHoje, DataReversa & "  " & "⚪", 
+    ISBLANK(DataReversa), "-"
+    )
+    return RESULTADO
+
+-------------------------------------------------------------------------
+
+INICIO_SCRIPT = 
+var DataInicioScript = MAX('Principal'[INICIO_SCRIPTS_MASSIFICACAO])
+var RESULTADO =
+    SWITCH(TRUE(),
+        ISBLANK(DataInicioScript), "-", //se não for preenchido
+        DataInicioScript //caso contrário, mostrar a data
+    )
+    return RESULTADO
+
+-------------------------------------------------------------------------
+
+TERMINO_SCRIPT = 
+var DataHoje = TODAY()
+var DataReversa = MAX(Principal[REVERSA])
+var DataScript = MAX('Principal'[INICIO_SCRIPTS_MASSIFICACAO])
+var AtrasoScript = MAX(Principal[ATRASO_MASSIFCACAO])
+var DataTerminoScript = MAX(Principal[TERMINO_SCRIPTS_MASSIFICACAO])
+var AprovadoCertificado = MAX('Principal'[APROVADO_CERTIFICADO])
+
+var RESULTADO = 
+    SWITCH(TRUE(),
+
+    AtrasoScript = 1, DataScript & "  " & "🟡", //está em atraso
+    DataHoje >= DataTerminoScript && DataTerminoScript <> BLANK(), DataScript & "  " & "🟢", //scripts concluídos
+    ISBLANK(DataScript), "-", //se scripts não for preenchido
+    DataScript > DataHoje, DataScript & "  " & "⚪", //é uma data futura
+    DataScript <= DataHoje && DataHoje < DataTerminoScript, DataScript & "  " & "🔵", //está em andamento
+    isblank(DataScript), "-" //se script não for preenchido
+
+    )
+    return RESULTADO
+
+-------------------------------------------------------------------------
