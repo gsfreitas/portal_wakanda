@@ -1,0 +1,52 @@
+aprovacao = 
+var aprovado = MAX(EFICIENCIA[status_homolog])
+
+var resultado = SWITCH(TRUE(),
+    aprovado = 1, "REPROVADO",
+    aprovado = 2, "APROVADO",
+    aprovado = 3, "EM TESTE",
+    aprovado = 4, "NÃO TESTADO",
+    aprovado = 5, "SEM HISTÓRICO"
+) return resultado
+
+-------------------------------------------------------------------------
+
+cont_fw_askey = CALCULATE(COUNTROWS(EFICIENCIA), 'EFICIENCIA'[vendor] = "ASKEY")
+
+-------------------------------------------------------------------------
+
+cont_fw_mitra = CALCULATE(COUNTROWS(EFICIENCIA), 'EFICIENCIA'[vendor] = "MITRASTAR")
+
+-------------------------------------------------------------------------
+
+contagem_atraso = CALCULATE(DISTINCTCOUNT(HISTORICO[ATRASO_HOMOLOG]), 'HISTORICO'[ATRASO_HOMOLOG] = 2)
+
+-------------------------------------------------------------------------
+
+contagem_reprovacao = CALCULATE(DISTINCTCOUNT(HISTORICO[APROVADO_HOMOLOG]), 'HISTORICO'[APROVADO_HOMOLOG] = 1)
+
+-------------------------------------------------------------------------
+
+franquias = 
+var Franquias = MAX(EFICIENCIA[franquias])
+
+var resultado = 
+    SWITCH(TRUE(),
+        Franquias = 2, "SIM",
+        "NÃO"
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+porcent_aprov_mitra = 
+    ('Medidas Historico'[total_aprovacoes]/[cont_fw_mitra])*100
+
+-------------------------------------------------------------------------
+
+total_aprovacoes = CALCULATE(COUNTROWS('EFICIENCIA'), 'EFICIENCIA'[status_homolog] = 2)
+
+-------------------------------------------------------------------------
+
+valor_max = 100
+
+-------------------------------------------------------------------------
