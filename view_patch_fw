@@ -1,0 +1,293 @@
+11k = 
+var onzek = MAX('PATCHFWHGUBP'[11K])
+
+var resultado = 
+    SWITCH(TRUE(),
+        onzek = 1, "🔴", //no
+        onzek = 2, "🟢", //yes
+        onzek = 3, "N/A", //nao se aplica
+        onzek = 4, "DECIDIR", //decidir
+        onzek = 5, "CONDITIONAL" //conditional
+    ) return resultado
+    
+-------------------------------------------------------------------------
+
+11v = 
+var onzev = MAX('PATCHFWHGUBP'[11V])
+
+var resultado = 
+    SWITCH(TRUE(),
+        onzev = 1, "🔴", //no
+        onzev = 2, "🟢", //yes
+        onzev = 3, "N/A", //nao se aplica
+        onzev = 4, "DECIDIR", //decidir
+        onzev = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+1watt = 
+var watt = MAX('PATCHFWHGUBP'[1WATT])
+
+var resultado = 
+    SWITCH(TRUE(),
+        watt = 1, "🔴", //no
+        watt = 2, "🟢", //yes
+        watt = 3, "N/A", //nao se aplica
+        watt = 4, "DECIDIR", //decidir
+        watt = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+Acl_ata = 
+var acl_ata = MAX('PATCHFWHGUBP'[ACL_ATA])
+
+var resultado = 
+    SWITCH(TRUE(),
+        acl_ata = 1, "🔴", //no
+        acl_ata = 2, "🟢", //yes
+        acl_ata = 3, "N/A", //nao se aplica
+        acl_ata = 4, "DECIDIR", //decidir
+        acl_ata = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+Ag_unico = 
+var ag_unico = MAX('PATCHFWHGUBP'[AGENTE_UNICO])
+
+var resultado = 
+    SWITCH(TRUE(),
+        ag_unico = 1, "🔴", //no
+        ag_unico = 2, "🟢", //yes
+        ag_unico = 3, "N/A", //nao se aplica
+        ag_unico = 4, "DECIDIR", //decidir
+        ag_unico = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+Band_steering = 
+var bsterring = MAX('PATCHFWHGUBP'[BAND_STEERING])
+
+var resultado = 
+    SWITCH(TRUE(),
+        bsterring = 1, "🔴", //no
+        bsterring = 2, "🟢", //yes
+        bsterring = 3, "N/A", //não se aplica
+        bsterring = 4, "DECIDIR", //decidir
+        bsterring = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+Cli_exp = 
+var cli_exp = MAX('PATCHFWHGUBP'[cli_exp])
+
+var resultado = 
+    SWITCH(TRUE(),
+        cli_exp = 1, "🔴", //no
+        cli_exp = 2, "🟢", //yes
+        cli_exp = 3, "N/A", //nao se aplica
+        cli_exp = 4, "DECIDIR", //decidir
+        cli_exp = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+cloudcheck = 
+var cloudcheck = MAX('PATCHFWHGUBP'[cloudcheck])
+
+var resultado = 
+    SWITCH(TRUE(),
+        cloudcheck = 1, "🔴", //no
+        cloudcheck = 2, "🟢", //yes
+        cloudcheck = 3, "N/A", //nao se aplica
+        cloudcheck = 4, "DECIDIR", //decidir
+        cloudcheck = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+dfs_ch_116 = 
+var dfs_ch = MAX('PATCHFWHGUBP'[dfs_ch_116_128])
+
+var resultado = 
+    SWITCH(TRUE(),
+        dfs_ch = 1, "🔴", //no
+        dfs_ch = 2, "🟢", //yes
+        dfs_ch = 3, "N/A", //nao se aplica
+        dfs_ch = 4, "DECIDIR", //decidir
+        dfs_ch = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+dfs_ch_132 = 
+var dfs_ch = MAX('PATCHFWHGUBP'[dfs_ch_132_144])
+
+var resultado = 
+    SWITCH(TRUE(),
+        dfs_ch = 1, "🔴", //no
+        dfs_ch = 2, "🟢", //yes
+        dfs_ch = 3, "N/A", //nao se aplica
+        dfs_ch = 4, "DECIDIR", //decidir
+        dfs_ch = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+icac = 
+var icac = MAX('PATCHFWHGUBP'[ICAC])
+
+var resultado = 
+    SWITCH(TRUE(),
+        icac = 1, "🔴", //no
+        icac = 2, "🟢", //yes
+        icac = 3, "N/A", //nao se aplica
+        icac = 4, "DECIDIR", //decidir
+        icac = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+MAUI = 
+var maui = MAX('PATCHFWHGUBP'[MAUI])
+
+var resultado = 
+    SWITCH(TRUE(),
+        maui = 1, "🔴", //no
+        maui = 2, "🟢", //yes
+        maui = 3, "N/A", //não se aplica
+        maui = 4, "DECIDIR", //decidir
+        maui = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+McAfee = 
+var mcafee = MAX('PATCHFWHGUBP'[MCAFEE])
+
+var resultado = 
+    SWITCH(TRUE(),
+        mcafee = 1, "🔴", //no
+        mcafee = 2, "🟢", //yes
+        mcafee = 3, "N/A", //nao se aplica
+        mcafee = 4, "DECIDIR", //decidir
+        mcafee = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+Ont_protection = 
+var ont_protection = MAX('PATCHFWHGUBP'[ONT_PROTECTION])
+
+var resultado = 
+    SWITCH(TRUE(),
+        ont_protection = 1, "🔴", //no
+        ont_protection = 2, "🟢", //yes
+        ont_protection = 3, "N/A", //nao se aplica
+        ont_protection = 4, "DECIDIR", //decidir
+        ont_protection = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+Pag_diagnostico = 
+var pag_diagnostico = MAX('PATCHFWHGUBP'[PAG_DIAGNOSTICO])
+
+var resultado = 
+    SWITCH(TRUE(),
+        pag_diagnostico = 1, "🔴", //no
+        pag_diagnostico = 2, "🟢", //yes
+        pag_diagnostico = 3, "N/A", //nao se aplica
+        pag_diagnostico = 4, "DECIDIR", //decidir
+        pag_diagnostico = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+Roaming = 
+var roaming = MAX('PATCHFWHGUBP'[ROAMING])
+
+var resultado = 
+    SWITCH(TRUE(),
+        roaming = 1, "🔴", //no
+        roaming = 2, "🟢", //yes
+        roaming = 3, "N/A", //não se aplica
+        roaming = 4, "DECIDIR", //decidir
+        roaming = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+SR_11n = 
+var sr = MAX('PATCHFWHGUBP'[SMART_ROAMING_11n])
+
+var resultado = 
+    SWITCH(TRUE(),
+        sr = 1, "🔴", //no
+        sr = 2, "🟢", //yes
+        sr = 3, "N/A", //nao se aplica
+        sr = 4, "DECIDIR", //decidir
+        sr = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+SR_melhoria = 
+var sr_melhoria = MAX('PATCHFWHGUBP'[smart_roaming_melhoria_parametro])
+
+var resultado = 
+    SWITCH(TRUE(),
+        sr_melhoria = 1, "🔴", //no
+        sr_melhoria = 2, "🟢", //yes
+        sr_melhoria = 3, "N/A", //nao se aplica
+        sr_melhoria = 4, "DECIDIR", //decidir
+        sr_melhoria = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+Support_cli = 
+var support_cli = MAX('PATCHFWHGUBP'[SUPPORT_CLI])
+
+var resultado = 
+    SWITCH(TRUE(),
+        support_cli = 1, "🔴", //no
+        support_cli = 2, "🟢", //yes
+        support_cli = 3, "N/A", //nao se aplica
+        support_cli = 4, "DECIDIR", //decidir
+        support_cli = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+tr143 = 
+var tr143 = MAX('PATCHFWHGUBP'[tr_143_mult_conex])
+
+var resultado = 
+    SWITCH(TRUE(),
+        tr143 = 1, "🔴", //no
+        tr143 = 2, "🟢", //yes
+        tr143 = 3, "N/A", //nao se aplica
+        tr143 = 4, "DECIDIR", //decidir
+        tr143 = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
+
+Xmpp = 
+var xmpp = MAX('PATCHFWHGUBP'[XMPP])
+
+var resultado = 
+    SWITCH(TRUE(),
+        xmpp = 1, "🔴", //no
+        xmpp = 2, "🟢", //yes
+        xmpp = 3, "N/A", //nao se aplica
+        xmpp = 4, "DECIDIR", //decidir
+        xmpp = 5, "CONDITIONAL" //conditional
+    ) return resultado
+
+-------------------------------------------------------------------------
