@@ -140,7 +140,7 @@ Novamente os faróis foram utilizados para fornecer uma visão mais intuitiva de
 <br/>
 
 <p align="center">
-  <img src="view_iptv.png" >
+  <img src="view_patch_fw.png" >
 </p>
 
 <br/>
