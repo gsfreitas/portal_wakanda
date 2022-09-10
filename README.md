@@ -1,4 +1,4 @@
-[![author](https://img.shields.io/badge/author-gabrielfreitas-red.svg)](https://www.linkedin.com/in/gabrielsfreitas/)
+[![author](https://img.shields.io/badge/author-gabrielfreitas-blue.svg)](https://www.linkedin.com/in/gabrielsfreitas/)
 
 <p align="center">
   <img src="banner.png" >
@@ -38,6 +38,7 @@ A lógica por trás de todas essas cores funciona da seguinte maneira:
 <p align="center">
   <img src="view_hgu.png" >
 </p>
+
 
 Segue um exemplo de um bloco de código para uma das fases de piloto (FUT):
 
