@@ -118,3 +118,12 @@ Alguns dispositivos não possuem informações claras a respeito, como a quantid
 
 Abaixo, é possível visualizar a página com as informações de IPTV. É importante ressaltar que as nomenclaturas foram alteradas, como "preferred" para HGU, neste caso é "OPCH".
 
+
+<br/>
+
+<p align="center">
+  <img src="view_iptv.png" >
+</p>
+
+<br/>
+
