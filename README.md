@@ -152,6 +152,8 @@ As informações são enviadas para um banco de dados, onde há o registro das f
 ## Metologia Timeline View:
 A proposta aqui é oferecer uma visão de gestão de firmwares e obter informações mais gerais sobre o status de cada projeto, mais especificamente quando se trata de datas de início e término dos principais processos.
 
+Como o intuito da página é dar a visão de cronograma, então não é mostrado quais firmwares foram aprovados ou não. Como podemos ver abaixo, o caso do Askey ECNT foi reprovado devido uma nova baseline da Espanha e parou de homologar no meio do processo, mas não é mostrado aqui. Isso justifica o motivo de aparecer que ele ainda está em andamento. Contudo, para evitar erros de interpretação, recomenda-se visitar a página principal de HGU primeiro e depois visitar a timeline, ou até mesmo esconder os dispositivos que já sabemos que foram reprovados, para evitar interpretações erradas.
+
 <br/>
 
 <p align="center">
