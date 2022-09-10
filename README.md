@@ -1,4 +1,4 @@
-[![author](https://img.shields.io/badge/author-gabrielfreitas-blue.svg)](https://www.linkedin.com/in/gabrielsfreitas/)
+[![author](https://img.shields.io/badge/author-gabrielfreitas-purple.svg)](https://www.linkedin.com/in/gabrielsfreitas/)
 
 <p align="center">
   <img src="banner.png" >
