@@ -1,4 +1,4 @@
-[![author](https://img.shields.io/badge/author-gabrielfreitas-purple.svg)](https://www.linkedin.com/in/gabrielsfreitas/)
+[![author](https://img.shields.io/badge/author-gabrielfreitas-purple.svg)](https://www.linkedin.com/in/gabrielsfreitas/) [![](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/) [![](https://img.shields.io/badge/microsoft-power_bi-yellow.svg)](https://powerbi.microsoft.com/pt-br/downloads/)
 
 <p align="center">
   <img src="banner.png" >
