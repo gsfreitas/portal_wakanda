@@ -144,3 +144,22 @@ Novamente os faróis foram utilizados para fornecer uma visão mais intuitiva de
 </p>
 
 <br/>
+
+As informações são enviadas para um banco de dados, onde há o registro das features de todos os firmwares. Em seguida, o Power BI passa a enxergar o banco de dados e faz as devidas conversões dos dados para uma determinada cor em cada feature. Também é feito, no próprio Power BI, um filtro por vendor e por chipset (BROADCOM ou ECONET).
+
+<br/>
+
+## Metologia Timeline View:
+A proposta aqui é oferecer uma visão de gestão de firmwares e obter informações mais gerais sobre o status de cada projeto, mais especificamente quando se trata de datas de início e término dos principais processos.
+
+<br/>
+
+<p align="center">
+  <img src="view_timeline.png" >
+</p>
+
+<br/>
+
+Para cumprir a proposta, foi usado o diagrama de Gantt, que mostra os projetos a esquerda, as fases no qual está submetido e a direita é mostrada então a calendarização de cada etapa.
+
+Logo acima, as primeiras informações são ocnsideradas "informações base", ou seja, aquelas que não devemos perder de vista e são consideradas informaç~eos esseciais dos dispositivos, como número em planta, firmware que está sendo testada, etc.
