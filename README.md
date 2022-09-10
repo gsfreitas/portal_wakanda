@@ -35,7 +35,7 @@ A lógica por trás de todas essas cores funciona da seguinte maneira:
 * OBS.: é possível interferir em cada fase, ou seja, mesmo que algum processo esteja com o status em andamento - ou qualquer outro -, é possível alterar para um diferente do atual (reprovado, atraso, etc.)
 
 <p align="center">
-  <img src="topologia.png" >
+  <img src="view_hgu.png" >
 </p>
 
 
