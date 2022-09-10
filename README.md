@@ -39,7 +39,7 @@ A lógica por trás de todas essas cores funciona da seguinte maneira:
   <img src="view_hgu.png" >
 </p>
 
-
+<br/>
 <details><summary>Exemplo de código utilizado para uma das fases de piloto (FUT):</summary>
 <p>
 
