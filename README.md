@@ -85,3 +85,9 @@ Para cada projeto, há uma página específica com todas as informações a resp
 * Quantidade de dispositivos na planta;
 * Porcentagem de atualização do firmware em produção;
 * Correções ou novas implementações do firmware candidate.
+
+<br/>
+
+<p align="center">
+  <img src="view_projeto.png" >
+</p>
