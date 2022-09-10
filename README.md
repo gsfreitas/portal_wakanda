@@ -79,6 +79,7 @@ var RESULTADO =
 </details>
 <br/>
 
+## Metodologia ficha dispositivo:
 Para cada projeto, há uma página específica com todas as informações a respeito dele. Exemplos de informações específica são:
 * Quantidade de tickets abertos por nível de criticidade;
 * Detalhamento dos tickets level 1;
@@ -105,3 +106,15 @@ Nesta página é importante destacar alguns pontos importantes:
 * Data escopo: oferece uma visão da data para solicitar a próxima versão de firmware;
 * Escopo próx. FW: mostra uma visão do que deve ser corrigido na próxima versão;
 * Pontos relevantes: algo importante a ser comentado que aconteceu durante alguma etapa de homologação (ex.: explicar o motivo do atraso da chegada de um firmware).
+
+<br/>
+
+## Metologia página IPTV:
+Para os projetos relacionados aos STB, basicamente a lógica aplicada foi a mesma. Contudo, foi dividido entre software e hardware. Essa divisão foi feita, uma vez que quando há a chegada de um software, ele é testado para todos os dispositivos que estão abaixo da linha principal. Por outro lado, quando algum hardware chega para ser testado, logicamente é testado individualmente, então cada projeto tem a sua fase separada e é tratado de maneira individual.
+
+A maior parte dos dispositivos chegam até a fase de FUT (que engloba a data de início do FUT 1 e término de FUT 2), já o restante do processo é feito pela equipe de engenharia (FOA em diante).
+
+Alguns dispositivos não possuem informações claras a respeito, como a quantidade em campo e porcentagem atualizado na versão em produção, uma vez que eles não são do Brasil (são projetos LATAM) e são consideradas informações confidenciais.
+
+Abaixo, é possível visualizar a página com as informações de IPTV. É importante ressaltar que as nomenclaturas foram alteradas, como "preferred" para HGU, neste caso é "OPCH".
+
