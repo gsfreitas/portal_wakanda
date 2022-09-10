@@ -1,4 +1,4 @@
-[![author](https://img.shields.io/badge/author-gabrielfreitas-purple.svg)](https://www.linkedin.com/in/gabrielsfreitas/) [![](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/) [![](https://img.shields.io/badge/microsoft-power_bi-yellow.svg)](https://powerbi.microsoft.com/pt-br/downloads/)
+[![author](https://img.shields.io/badge/author-gabrielfreitas-purple.svg)](https://www.linkedin.com/in/gabrielsfreitas/) [![](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/) [![](https://img.shields.io/badge/microsoft-power_bi-yellow.svg)](https://powerbi.microsoft.com/pt-br/downloads/) [![](https://img.shields.io/badge/Oracle-SQL-orange.svg)](https://www.mysql.com/downloads/)
 
 <p align="center">
   <img src="banner.png" >
@@ -23,6 +23,8 @@ Antes da existência do projeto, o CDD tinha os mesmos dados, mas estavam armaze
 Antes da existência do projeto, o CDD tinha os mesmos dados, mas estavam armazenados em fontes diferentes e não era intuitivo, o que gerava falha na comunicação entre as partes interessadas.
 
 Para facilitar a comunicação e projetar o que está acontecendo com cada projeto, foi feito um portal reunindo todas as informações da maneira mais intuitiva possível. Também foi elaborado um formulário para que toda equipe possa sugerir o que pode melhorar ou acrescentar alguma informação.
+
+Atualmente, há um dia e horário fixo, semanalmente, para atualizar as informações, tanto dos projetos de HGU, quanto os projetos ligados a IPTV.
 
 <br/>
 
