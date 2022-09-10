@@ -13,6 +13,7 @@ Projeto com o principal objetivo de facilitar a visualização de todo o process
 Antes da existência do projeto, o CDD tinha os mesmos dados, mas estavam armazenados em fontes diferentes e não era intuitivo, o que gerava falha na comunicação entre as partes interessadas.
 
 <br/>
+
 ## Topologia
 <p align="center">
   <img src="topologia.png" >
