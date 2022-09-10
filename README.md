@@ -94,3 +94,10 @@ Para cada projeto, há uma página específica com todas as informações a resp
 <p align="center">
   <img src="view_projeto.png" >
 </p>
+
+<br/>
+
+Nesta página é importante destacar alguns pontos importantes:
+* Novo FW: mostra o firmware candidate, ou seja, o firmware que está sendo testado;
+* Motivo novo FW: descreve a razão pelo qual foi solicitada a versão que está sendo testada (a pergunta aqui é: por que estamos testando esse firmware?);
+* 
