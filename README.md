@@ -165,3 +165,23 @@ Como o intuito da página é dar a visão de cronograma, então não é mostrado
 Para cumprir a proposta, foi usado o diagrama de Gantt, que mostra os projetos a esquerda, as fases no qual está submetido e a direita é mostrada então a calendarização de cada etapa.
 
 Logo acima, as primeiras informações são ocnsideradas "informações base", ou seja, aquelas que não devemos perder de vista e são consideradas informaç~eos esseciais dos dispositivos, como número em planta, firmware que está sendo testada, etc.
+
+<br/>
+
+## Metodologia eficiência:
+Aqui é possível verificar a eficiência de cada fornecedor, separados por chipsets, até mesmo o ano e a data de entrega dos firmwares.
+
+Foi feito um levantamento pelo time de homologação de todas essas informações, com dados desde o quarto trimestre de 2018.
+
+A eficiência é calculada com base em uma porcentagem de firmwares que são aprovados em comparação com o total de firmwares entregues, ou seja, quando falamos que a Askey tem um eficiência geral de 26,67%, isso significa dizer que de todos os firmwares entregues pela fabricante, desde 2018, apenas 26,67% deles foram aprovados.
+
+O uso de porcentagem foi utilizado para tentar nivelar a eficiência. Ao invés de falarmos em quantidade de firmwares aprovados, falamos em porcentagem, uma vez que os fabricantes entregaram diferentes quantidades deles para serem testados.
+
+
+<br/>
+
+<p align="center">
+  <img src="view_eficiencia.png" >
+</p>
+
+<br/>
