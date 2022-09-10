@@ -100,4 +100,8 @@ Para cada projeto, há uma página específica com todas as informações a resp
 Nesta página é importante destacar alguns pontos importantes:
 * Novo FW: mostra o firmware candidate, ou seja, o firmware que está sendo testado;
 * Motivo novo FW: descreve a razão pelo qual foi solicitada a versão que está sendo testada (a pergunta aqui é: por que estamos testando esse firmware?);
-* 
+* Tickets: mostra a quantidade dos tickets abertos para a versão que está sendo testada, separados por nível de criticidade;
+* Detalhes tickets lv. 1: como a prioridade é destacar os tickets que são mais críticos, esse bloco mostra detalhadamente cada ticket Lv.1 aberto;
+* Data escopo: oferece uma visão da data para solicitar a próxima versão de firmware;
+* Escopo próx. FW: mostra uma visão do que deve ser corrigido na próxima versão;
+* Pontos relevantes: algo importante a ser comentado que aconteceu durante alguma etapa de homologação (ex.: explicar o motivo do atraso da chegada de um firmware).
