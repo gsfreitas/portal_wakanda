@@ -39,7 +39,8 @@ A lógica por trás de todas essas cores funciona da seguinte maneira:
 </p>
 
 Segue um exemplo de um bloco de código para uma das fases de piloto (FUT):
-'''COND_IFUT = 
+'''
+COND_IFUT = 
 var DataHoje = TODAY()
 var DataInicioFUT = MAX('Principal'[INICIO_FUT])
 var DataTerminoFUT = MAX('Principal'[TERMINO_FUT])
@@ -59,4 +60,5 @@ var RESULTADO =
 
     ISBLANK(DataInicioFUT), "-" // se termino FUT não for preenchido
     )
-    return RESULTADO'''
+    return RESULTADO
+    '''
