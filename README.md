@@ -127,3 +127,20 @@ Abaixo, é possível visualizar a página com as informações de IPTV. É impor
 
 <br/>
 
+## Metodologia Patch FW:
+Com a finalidade de apontar as features em cada firmware, os dados dessa página são coletados das releases notes - enviadas pelos fabricantes Askey e Mitra - de todas as versões que o CDD possui atualmente.
+
+Essa página serve para nos dar uma noção da evolução das melhorias implementadas nos firmwares. Um bom exemplo disso é que até a data da escrita desse artigo, não houve nenhum firmware com uma melhoria para o agente único por parte da Mitrastar, apenas pelos firmwares da Askey, a partir da versão S40. 
+
+Com isso, é possível fornecer bagagem e argumentos suficientes para tomadores de decisão, no momento de cobrar alguma melhoria para a fabricante.
+
+Novamente os faróis foram utilizados para fornecer uma visão mais intuitiva de quais features possuem em cada versão, separados por fabricantes e chipsets.
+
+
+<br/>
+
+<p align="center">
+  <img src="view_iptv.png" >
+</p>
+
+<br/>
