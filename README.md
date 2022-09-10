@@ -14,7 +14,7 @@ A forma como os dados se comunicam entre si e sua relação com as outras págin
 
 ## Topologia
 <p align="center">
-  <img src="topologia_cdd.jpg" >
+  <img src="topologia.png" >
 </p>
 
 ## Projetos:
