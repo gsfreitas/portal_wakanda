@@ -32,14 +32,16 @@ A lógica por trás de todas essas cores funciona da seguinte maneira:
 * Reprovado (farol vermelho): é quando o firmware de algum dispositivo é reprovado em alguma fase de homologação;
 * Em atraso (farol amarelo): um firmware ou processo de homologação estava previsto para uma determinada data, mas houve um atraso, seja para a entrega ou início de alguma fase.
 
-* OBS.: é possível interferir em cada fase, ou seja, mesmo que algum processo esteja com o status em andamento - ou qualquer outro -, é possível alterar para um diferente do atual (reprovado, atraso, etc.)
+* OBS.I: é possível interferir em cada fase, ou seja, mesmo que algum processo esteja com o status em andamento - ou qualquer outro -, é possível alterar para um diferente do atual (reprovado, atraso, etc.)
+* OBS.II: se alguma das fases for reprovada, todas as fases subsequentes não irão mostrar as datas, já que não há lógica em projetar uma data - mesmo que seja futura -, para um firmware que foi reprovado em uma etapa anterior.
 
 <p align="center">
   <img src="view_hgu.png" >
 </p>
 
 Segue um exemplo de um bloco de código para uma das fases de piloto (FUT):
-'''
+
+```
 COND_IFUT = 
 var DataHoje = TODAY()
 var DataInicioFUT = MAX('Principal'[INICIO_FUT])
@@ -61,4 +63,4 @@ var RESULTADO =
     ISBLANK(DataInicioFUT), "-" // se termino FUT não for preenchido
     )
     return RESULTADO
-    '''
+```
