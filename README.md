@@ -76,3 +76,12 @@ var RESULTADO =
 </details>
 <br/>
 
+Para cada projeto, há uma página específica com todas as informações a respeito dele. Exemplos de informações específica são:
+* Quantidade de tickets abertos por nível de criticidade;
+* Detalhamento dos tickets level 1;
+* Escopo do próximo firmware;
+* Data de término de cada etapa de homologação;
+* Pontos relevantes;
+* Quantidade de dispositivos na planta;
+* Porcentagem de atualização do firmware em produção;
+* Correções ou novas implementações do firmware candidate.
