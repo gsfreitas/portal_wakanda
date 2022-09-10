@@ -38,4 +38,25 @@ A lógica por trás de todas essas cores funciona da seguinte maneira:
   <img src="view_hgu.png" >
 </p>
 
+Segue um exemplo de um bloco de código para uma das fases de piloto (FUT):
+'''COND_IFUT = 
+var DataHoje = TODAY()
+var DataInicioFUT = MAX('Principal'[INICIO_FUT])
+var DataTerminoFUT = MAX('Principal'[TERMINO_FUT])
+var AtrasoFUT = MAX(Principal[ATRASO_FUT])
+var AprovadoFUT = MAX(Principal[APROVADO_FUT])
+var AprovadoHomolog = MAX(Principal[APROVADO_HOMOLOG])
 
+var RESULTADO = 
+    SWITCH(TRUE(),
+    AprovadoHomolog = 1, "-",
+
+    AtrasoFUT = 2, UPPER(FORMAT(DataInicioFUT, "DDMMM")) & "  " & "🟡", //está em atraso
+    AprovadoFUT = 1 && AprovadoFUT <> BLANK(), UPPER(FORMAT(DataInicioFUT, "DDMMM")) & "  " & "🔴", //está reprovado
+    DataInicioFUT <= DataHoje && DataHoje <= DataTerminoFUT, UPPER(FORMAT(DataInicioFUT, "DDMMM")) & "  " & "🔵", // homologação está em andamento
+    DataTerminoFUT < DataHoje && DataTerminoFUT <> BLANK(), UPPER(FORMAT(DataInicioFUT, "DDMMM")) & "  " & "🟢", // FUT concluído
+    DataInicioFUT > DataHoje, UPPER(FORMAT(DataInicioFUT, "DDMMM")) & "  " & "⚪", // é uma data futura
+
+    ISBLANK(DataInicioFUT), "-" // se termino FUT não for preenchido
+    )
+    return RESULTADO'''
